@@ -56,7 +56,7 @@ class UNetPPDecoder5(nn.Module):
     def forward(self, f, center):
         pass
 
-class LACMAFNet_2mod(nn.Module):
+class SYNAPSENet_2mod(nn.Module):
     def __init__(self,
                  chs=(64, 96, 128, 192, 256),
                  token_dim=256,
