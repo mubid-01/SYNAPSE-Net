@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from torch.amp import autocast, GradScaler
 import nibabel as nib
 
-from src.models.lacmafnet_2mod import LACMAFNet_2mod as LACMAFNet
+from src.models.SYNAPSE-Net_2mod import SYNAPSE-Net_2mod as SYNAPSENet
 from src.data_loaders.dataset_wmh import WMH_dataset, RandomGeneratorFromScratch
 from src.utils.helpers.wmh_helpers import (
     FocalTverskyLoss, FocalLoss, BoundaryLoss,
@@ -87,7 +87,7 @@ def prepare_dataloaders(cfg):
     return train_transform, make_loader
 
 def prepare_model(cfg):
-    model = LACMAFNet(chs=cfg.chs, token_dim=cfg.token_dim, swin_mlp_ratio=cfg.swin_mlp_ratio,
+    model = SYNAPSENet(chs=cfg.chs, token_dim=cfg.token_dim, swin_mlp_ratio=cfg.swin_mlp_ratio,
                          dropout_rate=cfg.dropout_rate, drop_path_rate=cfg.drop_path_rate).to(cfg.device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=(cfg.epochs - cfg.warmup_epochs), eta_min=1e-7)
