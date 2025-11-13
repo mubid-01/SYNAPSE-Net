@@ -30,7 +30,7 @@ class Config:
     num_subjects = 50
     val_split_fraction = 0.2
     input_h, input_w = 208, 208
-    batch_size = 12
+    batch_size = 8
     num_workers = 2
     oversample_factor = 2
     seed = 42
@@ -46,7 +46,7 @@ class Config:
     epochs = 300
     amp = True
     lr = 5e-5 
-    weight_decay = 1e-5
+    weight_decay = 1e-4
     early_stop = 30
     
     aux_weights = [0.4, 0.2]
