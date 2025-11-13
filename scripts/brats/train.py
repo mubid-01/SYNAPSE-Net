@@ -9,7 +9,7 @@ from torch.amp import autocast, GradScaler
 import nibabel as nib
 import pandas as pd
 
-from src.models.lacmafnet_4mod import LACMAFNet_4mod as LACMAFNet
+from src.models.SYNAPSE-Net_4mod import SYNAPSE-Net_4mod as SYNAPSENet
 from src.data_loaders.dataset_brats import BraTS_dataset, RandomGenerator
 from src.utils.helpers.brats_helpers import (
     post_process_volume,
@@ -74,7 +74,7 @@ def prepare_dataloaders(cfg):
     return train_loader, val_ds
 
 def prepare_model(cfg):
-    model = LACMAFNet(
+    model = SYNAPSENet(
         chs=cfg.chs, token_dim=cfg.token_dim, bottleneck_heads=cfg.bottleneck_heads,
         aux_outs=len(cfg.aux_weights), bottleneck_window=cfg.bottleneck_window,
         pre_swin_layers=cfg.pre_swin_layers, dropout_rate=cfg.dropout_rate,
