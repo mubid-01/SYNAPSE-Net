@@ -36,7 +36,7 @@ class Config:
     
     batch_size = 18
     num_workers = 2
-    epochs = 200
+    epochs = 150
     early_stop = 20
     
     lr = 1e-4
