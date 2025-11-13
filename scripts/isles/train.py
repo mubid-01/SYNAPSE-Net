@@ -112,7 +112,8 @@ def prepare_model(cfg):
         dropout_rate=cfg.dropout_rate, drop_path_rate=cfg.drop_path_rate
     ).to(cfg.device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=(cfg.epochs - cfg.warmup_epochs), eta_min=1e-7)
+    training_epochs = cfg.epochs - cfg.warmup_epochs
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=training_epochs, eta_min=1e-7)
     return model, optimizer, scheduler
 
 def train_epoch(epoch, model, loader, optimizer, scaler, cfg):
