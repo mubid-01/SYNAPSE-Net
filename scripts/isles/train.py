@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from torch.amp import autocast, GradScaler
 import nibabel as nib
 
-from src.models.lacmafnet_2mod import LACMAFNet_2mod as LACMAFNet
+from src.models.SYNAPSE-Net_2mod import SYNAPSE-Net_2mod as SYNAPSENet
 from src.data_loaders.dataset_isles import stroke_dataset, RandomGeneratorFromScratch
 from src.utils.helpers.isles_helpers import (
     FocalTverskyLoss, FocalLoss, BoundaryLoss,
@@ -107,7 +107,7 @@ class StrokeSubset(stroke_dataset):
                     continue
 
 def prepare_model(cfg):
-    model = LACMAFNet(
+    model = SYNAPSENet(
         chs=cfg.chs, token_dim=cfg.token_dim, swin_mlp_ratio=cfg.swin_mlp_ratio,
         dropout_rate=cfg.dropout_rate, drop_path_rate=cfg.drop_path_rate
     ).to(cfg.device)
