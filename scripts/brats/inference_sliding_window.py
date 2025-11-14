@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import nibabel as nib
 from tqdm import tqdm
 
-from src.models.lacmafnet_4mod import LACMAFNet_4mod as LACMAFNet
+from src.models.SYNAPSE-Net_4mod import SYNAPSE-Net_4mod as SYNAPSENet
 
 def inference_sliding_window(model_path, input_nifti, output_nifti, roi_size=(208,208), device='cpu'):
     model = LACMAFNet(chs=(64,96,128,256,384), token_dim=256, bottleneck_heads=8, aux_outs=2,
