@@ -6,12 +6,12 @@ import nibabel as nib
 from tqdm import tqdm
 import torch.nn.functional as F
 
-from src.models.SYNAPSE-Net_4mod import SYNAPSE-Net_4mod as SYNAPSENet
+from src.models.SYNAPSENet_4mod import SYNAPSENet_4mod as SYNAPSENet
 from src.utils.helpers.brats_helpers import post_process_volume
 
 def run_final_test_inference(model_path, data_root, output_dir, device='cpu'):
     os.makedirs(output_dir, exist_ok=True)
-    model = LACMAFNet(chs=(64,96,128,256,384), token_dim=256, bottleneck_heads=8, aux_outs=2,
+    model = SYNAPSENet(chs=(64,96,128,256,384), token_dim=256, bottleneck_heads=8, aux_outs=2,
                          bottleneck_window=8, pre_swin_layers=4, dropout_rate=0.4,
                          num_modalities=4, num_classes=4).to(device)
     model.load_state_dict(torch.load(model_path, map_location=device))
