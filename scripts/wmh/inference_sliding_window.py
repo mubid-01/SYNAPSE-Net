@@ -6,7 +6,7 @@ from tqdm import tqdm
 from monai.inferers import sliding_window_inference
 import torch.nn.functional as F
 
-from src.models.lacmafnet_2mod import LACMAFNet_2mod as LACMAFNet
+from src.models.SYNAPSENet_2mod import SYNAPSENet_2mod as SYNAPSENet
 from src.data_loaders.dataset_wmh import WMH_dataset
 
 
@@ -29,7 +29,7 @@ def generate_validation_probs():
     os.makedirs(cfg.output_dir, exist_ok=True)
     
     print(f"Loading model from: {cfg.model_path}")
-    model = LACMAFNet(chs=cfg.chs, token_dim=cfg.token_dim, swin_mlp_ratio=cfg.swin_mlp_ratio,
+    model = SYNAPSENet(chs=cfg.chs, token_dim=cfg.token_dim, swin_mlp_ratio=cfg.swin_mlp_ratio,
                          dropout_rate=cfg.dropout_rate, drop_path_rate=cfg.drop_path_rate).to(cfg.device)
 
     model.load_state_dict(torch.load(cfg.model_path, map_location=cfg.device))
