@@ -4,7 +4,7 @@ import numpy as np
 import nibabel as nib
 from tqdm import tqdm
 
-from src.models.lacmafnet_4mod import LACMAFNet_4mod as LACMAFNet
+from src.models.SYNAPSE-Net_4mod import SYNAPSE-Net_4mod as SYNAPSENet
 from src.data_loaders.dataset_brats import BraTS_dataset
 from src.utils.helpers.brats_helpers import compute_brats_metrics_detailed, post_process_volume
 
