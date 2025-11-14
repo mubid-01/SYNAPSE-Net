@@ -6,7 +6,7 @@ import nibabel as nib
 from tqdm import tqdm
 import torch.nn.functional as F
 
-from src.models.lacmafnet_4mod import LACMAFNet_4mod as LACMAFNet
+from src.models.SYNAPSE-Net_4mod import SYNAPSE-Net_4mod as SYNAPSENet
 from src.utils.helpers.brats_helpers import post_process_volume
 
 def run_final_test_inference(model_path, data_root, output_dir, device='cpu'):
