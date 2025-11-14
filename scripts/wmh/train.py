@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from torch.amp import autocast, GradScaler
 import nibabel as nib
 
-from src.models.SYNAPSE-Net_2mod import SYNAPSE-Net_2mod as SYNAPSENet
+from src.models.SYNAPSENet_2mod import SYNAPSENet_2mod as SYNAPSENet
 from src.data_loaders.dataset_wmh import WMH_dataset, RandomGeneratorFromScratch
 from src.utils.helpers.wmh_helpers import (
     FocalTverskyLoss, FocalLoss, BoundaryLoss,
@@ -28,7 +28,7 @@ class Config:
 
     data_root = os.getenv('DATA_ROOT', default_data)
     
-    work_dir = os.getenv('WORK_DIR', f'lacmafnet_WMH_run_{datetime.now().strftime("%Y%m%d_%H%M%S")}')
+    work_dir = os.getenv('WORK_DIR', f'SYNAPSENet_WMH_run_{datetime.now().strftime("%Y%m%d_%H%M%S")}')
     resume_from_checkpoint = None
     input_h, input_w = 208, 208
     amp = True
