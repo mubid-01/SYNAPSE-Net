@@ -9,7 +9,7 @@ from torch.amp import autocast, GradScaler
 import nibabel as nib
 import pandas as pd
 
-from src.models.SYNAPSE-Net_4mod import SYNAPSE-Net_4mod as SYNAPSENet
+from src.models.SYNAPSENet_4mod import SYNAPSENet_4mod as SYNAPSENet
 from src.data_loaders.dataset_brats import BraTS_dataset, RandomGenerator
 from src.utils.helpers.brats_helpers import (
     post_process_volume,
