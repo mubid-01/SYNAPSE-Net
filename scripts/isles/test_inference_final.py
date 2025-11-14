@@ -7,7 +7,7 @@ import nibabel as nib
 from tqdm import tqdm
 import torch.nn.functional as F
 
-from src.models.lacmafnet_2mod import LACMAFNet_2mod as LACMAFNet
+from src.models.SYNAPSENet_2mod import SYNAPSENet_2mod as SYNAPSENet
 from src.utils.utils import post_process_volume
 
 
@@ -30,7 +30,7 @@ def run_final_test_inference(data_root=None, model_path=None, output_dir=None, t
     os.makedirs(cfg.output_dir, exist_ok=True)
     
     print(f"Loading model from: {cfg.model_path}")
-    model = LACMAFNet(
+    model = SYNAPSENet(
         chs=cfg.chs, token_dim=cfg.token_dim, swin_mlp_ratio=cfg.swin_mlp_ratio,
         dropout_rate=cfg.dropout_rate, drop_path_rate=cfg.drop_path_rate
     ).to(cfg.device)
